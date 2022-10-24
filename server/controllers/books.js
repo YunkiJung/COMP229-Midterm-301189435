@@ -1,3 +1,5 @@
+// books.js - Yun Ki Jung - 301189435 - COMP229-Midterm-301189435
+
 // define the book model
 import booksModel from '../models/books.js';
 
@@ -66,7 +68,7 @@ export function processEditPage(req, res, next) {
         price: req.body.price
     });
 
-    booksModel.updateOne({ _id: id }, updatedBook, (err, Book) => {
+    booksModel.updateOne({ _id : id }, updatedBook, (err, Book) => {
         if(err){
             console.error(err);
             res.end(err);
@@ -79,7 +81,14 @@ export function processEditPage(req, res, next) {
 
 // GET - process the delete by user id
 export function processDelete(req, res, next) {
-    /*****************
-  * ADD CODE HERE *
-  *****************/
+    let id = req.params.id;
+
+    booksModel.remove({ _id : id }, (err) => {
+        if(err){
+            console.error(err);
+            res.end(err);
+        }
+
+        res.redirect('/books/list');
+    })
 }
