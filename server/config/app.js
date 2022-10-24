@@ -1,3 +1,5 @@
+// app.js - Yun Ki Jung - 301189435 - COMP229-Midterm-301189435
+
 import createError from 'http-errors';
 import express from 'express';
 
